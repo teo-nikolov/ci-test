@@ -19,9 +19,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class CheckoutTests {
     public WebDriver driver;
@@ -29,17 +28,16 @@ public class CheckoutTests {
 
     @BeforeAll
     public static void classInit() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
     public void testInit() {
-        FirefoxBinary firefoxBinary = new FirefoxBinary();
-        firefoxBinary.addCommandLineOptions("--headless");
-        FirefoxOptions firefoxOptions = new FirefoxOptions();
-        firefoxOptions.setBinary(firefoxBinary);
+        ChromeOptions options = new ChromeOptions();
 
-        driver = new FirefoxDriver(firefoxOptions);
+        options.addArguments("--headless");
+
+        driver = new ChromeDriver(options);
         page = new CheckoutPage(driver);
 
         page.navigate();

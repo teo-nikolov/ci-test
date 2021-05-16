@@ -13,6 +13,7 @@
 
 package localpage;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import java.net.URL;
@@ -52,6 +53,7 @@ public class CheckoutPage {
         elements().cardExpiration().sendKeys(clientInfo.getCardExpiration());
         elements().cardCVV().sendKeys(clientInfo.getCardCVV());
 
-        elements().submitButton().click();
+        var js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();", elements().submitButton());
     }
 }
