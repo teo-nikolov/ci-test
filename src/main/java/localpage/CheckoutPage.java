@@ -19,7 +19,7 @@ import java.net.URL;
 
 public class CheckoutPage {
     private final WebDriver driver;
-    private final URL url = getClass().getClassLoader().getResource("checkout/index.html");
+    private final String url = "https://getbootstrap.com/docs/5.0/examples/checkout/";
 
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;
