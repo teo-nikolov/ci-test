@@ -90,7 +90,8 @@ public class CheckoutTests {
 
         page.fillInfo(clientInfo);
 
-        page.assertions().validatedFirstName();
+        //page.assertions().validatedFirstName();
+        page.assertions().formSent(); // break test on purpose
     }
 
     @Test
