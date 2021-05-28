@@ -134,7 +134,7 @@ public class CheckoutTests {
 
         page.fillInfo(clientInfo);
 
-        page.assertions().validatedUsername();
+        page.assertions().validatedEmail();
     }
 
     @Test
